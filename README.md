@@ -10,16 +10,6 @@ without leaving the page.
 ![Data collection: none](https://img.shields.io/badge/data%20collection-none-brightgreen)
 ![License: MIT](https://img.shields.io/badge/license-MIT-lightgrey)
 
-## Screenshots
-
-| Build | Teams |
-|---|---|
-| ![Build tab — weapon, artifacts, stats, sample teams](docs/screenshot-1-build-tab.png) | ![Teams tab — team comps with roles and matched artifact sets](docs/screenshot-2-teams-tab.png) |
-
-| Farm | Calc |
-|---|---|
-| ![Farm tab — material checklist with progress](docs/screenshot-3-farm-tab.png) | ![Calc tab — resin estimate and stat goal check](docs/screenshot-4-calc-tab.png) |
-
 ## Features
 
 - **Build tab** — rarity/element/weapon, best weapon with ranked replacements, artifact sets (×4 and ×2/×2 mixes), Sands/Goblet/Circlet main stats, sub-stat priority, sample teams, and the talent priority table. Pages with multiple builds get a pill switcher

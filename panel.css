@@ -1,0 +1,168 @@
+/* Genshin Build Companion — panel styles (prefixed .gbc- to avoid collisions) */
+
+#gbc-root { all: initial; }
+#gbc-root, #gbc-root * { box-sizing: border-box; margin: 0; padding: 0; }
+#gbc-root .mono, #gbc-root input {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+#gbc-root {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #3C403C;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+/* launcher */
+#gbc-root .gbc-launcher {
+  position: fixed; right: 18px; bottom: 18px; z-index: 2147483646;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: #F0FFF0; color: #3C403C;
+  border: 1.5px solid #3C403C; box-shadow: 3px 3px 0 #D8E6D8;
+  font-size: 20px; cursor: pointer;
+  transition: transform 0.12s ease;
+}
+#gbc-root .gbc-launcher:hover { transform: translateY(-2px); }
+#gbc-root .gbc-hidden { display: none !important; }
+
+/* panel frame */
+#gbc-root .gbc-panel {
+  position: fixed; right: 18px; bottom: 18px; z-index: 2147483646;
+  width: 372px; max-height: 76vh;
+  display: flex; flex-direction: column;
+  background: #F0FFF0;
+  border: 1.5px solid #3C403C; border-radius: 16px;
+  box-shadow: 6px 6px 0 #D8E6D8;
+  overflow: hidden;
+}
+#gbc-root .gbc-head {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  padding: 14px 16px 10px;
+  flex: none; /* never let the flex column squeeze the header */
+}
+#gbc-root .gbc-name { font-size: 17px; font-weight: 800; letter-spacing: -0.01em; }
+#gbc-root .gbc-meta { margin-top: 2px; font-size: 11px; opacity: 0.65; }
+#gbc-root .gbc-close {
+  background: none; border: 1.5px solid #3C403C; border-radius: 8px;
+  width: 26px; height: 26px; cursor: pointer; color: #3C403C;
+  font-size: 13px; line-height: 1; background: #fff;
+}
+#gbc-root .gbc-close:hover { background: #D8E6D8; }
+
+/* tabs */
+#gbc-root .gbc-tabs {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  margin: 0 16px; border: 1.5px solid #3C403C; border-radius: 10px; overflow: hidden;
+  background: #fff;
+  flex: none; /* tall farm lists must shrink the body, never the tab bar */
+}
+#gbc-root .gbc-tab { min-height: 32px; }
+#gbc-root .gbc-tab {
+  padding: 8px 0; font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  background: #fff; color: #3C403C; border: none; cursor: pointer;
+}
+#gbc-root .gbc-tab + .gbc-tab { border-left: 1.5px solid #3C403C; }
+#gbc-root .gbc-tab:hover:not(.active) { background: #D8E6D8; }
+#gbc-root .gbc-tab.active { background: #3C403C; color: #F0FFF0; }
+
+/* body — the only part allowed to shrink/scroll */
+#gbc-root .gbc-body { padding: 12px 16px 16px; overflow-y: auto; flex: 1 1 auto; min-height: 0; }
+
+/* our own scrollbar, so the site's global ::-webkit-scrollbar theme
+   (chunky thumbs, arrow buttons) doesn't leak into the panel */
+#gbc-root .gbc-body::-webkit-scrollbar { width: 8px; }
+#gbc-root .gbc-body::-webkit-scrollbar-track { background: transparent; }
+#gbc-root .gbc-body::-webkit-scrollbar-thumb {
+  background: #B9CBB9; border-radius: 999px; border: 2px solid #F0FFF0;
+}
+#gbc-root .gbc-body::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+#gbc-root .gbc-body { scrollbar-width: thin; scrollbar-color: #B9CBB9 transparent; }
+#gbc-root .gbc-section { margin-top: 14px; }
+#gbc-root .gbc-label {
+  font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.75;
+  margin-bottom: 7px;
+}
+#gbc-root .gbc-mt { margin-top: 10px; }
+#gbc-root .gbc-dim { font-size: 11.5px; opacity: 0.65; }
+#gbc-root .gbc-foot { margin-top: 14px; line-height: 1.5; }
+
+/* build tab */
+#gbc-root .gbc-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+#gbc-root .gbc-pill {
+  padding: 5px 11px; font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase;
+  background: #fff; color: #3C403C; border: 1.5px solid #3C403C; border-radius: 999px; cursor: pointer;
+}
+#gbc-root .gbc-pill:hover:not(.active) { background: #D8E6D8; }
+#gbc-root .gbc-pill.active { background: #3C403C; color: #F0FFF0; }
+#gbc-root .gbc-weapon { font-size: 14px; font-weight: 700; }
+#gbc-root .gbc-art { font-size: 12.5px; font-weight: 600; line-height: 1.5; }
+#gbc-root .gbc-list { margin: 4px 0 0 18px; font-size: 12px; }
+#gbc-root .gbc-list li { margin-top: 2px; }
+#gbc-root .gbc-kv { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: 11.5px; }
+#gbc-root .gbc-k { font-weight: 700; letter-spacing: 0.04em; }
+#gbc-root .gbc-v { opacity: 0.85; }
+#gbc-root .gbc-table { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+#gbc-root .gbc-table th, #gbc-root .gbc-table td {
+  border: 1px solid #3C403C; padding: 5px 8px; text-align: left; background: #fff;
+}
+#gbc-root .gbc-table th { background: #D8E6D8; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* farm tab */
+#gbc-root .gbc-mats { display: flex; flex-direction: column; gap: 4px; }
+#gbc-root .gbc-mat {
+  display: flex; align-items: center; gap: 9px;
+  background: #fff; border: 1.5px solid #3C403C; border-radius: 9px; padding: 6px 10px;
+}
+#gbc-root .gbc-mat.done { opacity: 0.55; }
+#gbc-root .gbc-mat.done .gbc-matname { text-decoration: line-through; }
+#gbc-root .gbc-cb { width: 15px; height: 15px; accent-color: #3C403C; cursor: pointer; flex: none; }
+#gbc-root .gbc-matname { flex: 1; font-size: 12px; line-height: 1.3; }
+#gbc-root .gbc-matnum { display: flex; align-items: center; gap: 4px; flex: none; }
+#gbc-root .gbc-have {
+  width: 62px; padding: 3px 6px; font-size: 11px;
+  border: 1.5px solid #3C403C; border-radius: 7px; background: #F0FFF0; color: #3C403C;
+  outline: none; text-align: right;
+}
+#gbc-root .gbc-need { font-size: 10.5px; opacity: 0.65; white-space: nowrap; }
+#gbc-root .gbc-progress {
+  margin-top: 8px; height: 8px; border: 1.5px solid #3C403C; border-radius: 999px;
+  background: #fff; overflow: hidden;
+}
+#gbc-root .gbc-progress-fill { height: 100%; background: #3C403C; border-radius: 999px; transition: width 0.2s ease; }
+#gbc-root .gbc-progress-label { margin-top: 5px; font-size: 10.5px; }
+#gbc-root .gbc-reset {
+  margin-top: 16px; width: 100%; padding: 9px;
+  font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase;
+  background: #fff; color: #3C403C; border: 1.5px dashed #3C403C; border-radius: 9px; cursor: pointer;
+}
+#gbc-root .gbc-reset:hover { background: #D8E6D8; }
+
+/* teams tab */
+#gbc-root .gbc-team {
+  background: #fff; border: 1.5px solid #3C403C; border-radius: 9px;
+  padding: 8px 10px; margin-top: 6px;
+}
+#gbc-root .gbc-teamname {
+  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.65;
+  margin-bottom: 5px;
+}
+#gbc-root .gbc-member { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 1px 0; }
+#gbc-root .gbc-mname { font-size: 12px; font-weight: 600; }
+#gbc-root .gbc-role { font-size: 10px; opacity: 0.6; text-align: right; white-space: nowrap; }
+#gbc-root .gbc-note { margin-top: 6px; font-size: 10.5px; opacity: 0.65; line-height: 1.5; }
+#gbc-root .gbc-teamart {
+  margin-top: 7px; padding-top: 7px; border-top: 1.5px dashed rgba(60, 64, 60, 0.3);
+  display: flex; align-items: baseline; gap: 8px;
+}
+#gbc-root .gbc-teamart-k {
+  font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; flex: none;
+}
+#gbc-root .gbc-teamart-v { font-size: 11px; font-weight: 600; line-height: 1.4; }
+
+/* calc tab */
+#gbc-root .gbc-resin { font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
+#gbc-root .gbc-goals { display: flex; flex-direction: column; gap: 6px; }
+#gbc-root .gbc-goal { display: grid; grid-template-columns: 84px 74px 1fr; align-items: center; gap: 8px; }
+#gbc-root .gbc-verdict { font-size: 10.5px; opacity: 0.75; }
+#gbc-root .gbc-verdict.gbc-ok { opacity: 1; color: #1d6b30; font-weight: 700; }
+#gbc-root .gbc-verdict.gbc-bad { opacity: 1; color: #a33b2e; font-weight: 700; }

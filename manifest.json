@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Genshin Build Companion",
+  "version": "1.2.0",
+  "description": "Build summary, team comps, farming checklist, and material/resin calculator for game8 Genshin Impact build pages. Fully on-device.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://game8.co/games/Genshin-Impact/archives/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "panel.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
